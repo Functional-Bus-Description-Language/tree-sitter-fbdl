@@ -72,5 +72,19 @@ module.exports = grammar({
     // TODO: Replace identifier on RHS.
     property_assignment: $ => seq($.identifier, '=', $.identifier),
 
+    _integer_literal: $ => choice(
+      $.decimal_literal,
+      $.binary_literal,
+      $.octal_literal,
+      $.hex_literal
+    ),
+
+    decimal_literal: $ => /[1-9]([0-9]|_)*/,
+
+    binary_literal: $ => /0(b|B)[01]([01]|_)*/,
+
+    octal_literal: $ => /0(o|O)[0-7]([0-7]|_)*/,
+
+    hex_literal: $ => /0(x|X)[0-9|a-f|A-F]([0-9|a-f|A-F]|_)*/,
   }
 });
