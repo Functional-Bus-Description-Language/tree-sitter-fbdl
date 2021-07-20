@@ -23,12 +23,15 @@ module.exports = grammar({
 
     _meta_statement: $ => choice(
       $._import_statement,
+      $.package_statement
     ),
 
     _import_statement: $ => choice(
       $.single_import_statement,
       $.multi_import_statement
     ),
+
+    package_statement: $ => seq('package', $._declared_identifier, $._newline),
 
     single_import_statement: $ => seq('import', $._declared_identifier, $._newline),
 
