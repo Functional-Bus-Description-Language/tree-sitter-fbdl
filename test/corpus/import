@@ -10,4 +10,4 @@ import
 
 ---
 
-(meta_statement)
+(description (single_import_statement (identifier)) (multi_import_statement (identifier) (identifier)))
