@@ -1,0 +1,13 @@
+======
+Import
+======
+
+import foo
+
+import
+	foo
+	bar
+
+---
+
+(meta_statement)

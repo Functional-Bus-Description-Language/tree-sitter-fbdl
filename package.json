@@ -1,0 +1,25 @@
+{
+  "name": "tree-sitter-fbdl",
+  "version": "0.0.0",
+  "description": "Functional Bus Description Language",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Functional-Bus-Description-Language/tree-sitter-fbdl.git"
+  },
+  "author": "Michał Kruszewski",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Functional-Bus-Description-Language/tree-sitter-fbdl/issues"
+  },
+  "homepage": "https://github.com/Functional-Bus-Description-Language/tree-sitter-fbdl#readme",
+  "dependencies": {
+    "nan": "^2.14.2"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  }
+}
