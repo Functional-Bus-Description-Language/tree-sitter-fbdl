@@ -72,7 +72,7 @@ bool tree_sitter_fbdl_external_scanner_scan(
 		if (lexer->lookahead == '\t') {
 			lexer->advance(lexer, false);
 
-			if (lexer->lookahead == "\t") {
+			if (lexer->lookahead == '\t') {
 				errx(EXIT_FAILURE, "Multi indent detected");
 			}
 
