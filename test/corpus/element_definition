@@ -1,0 +1,18 @@
+==================
+Element definition
+==================
+
+mask my_mask
+
+mask my_mask
+	atomic = true
+
+mask my_mask(width=fix_me)
+	width = fix_me
+
+---
+
+(description
+  (element_definition (element_type) (identifier))
+  (element_definition (element_type) (identifier) (element_body (property_assignment (identifier) (identifier))))
+  (element_definition (element_type) (identifier) (parameters_list (parameter (identifier) (identifier))) (element_body (property_assignment (identifier) (identifier)))))
