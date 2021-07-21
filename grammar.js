@@ -1,3 +1,13 @@
+const PREC = {
+  or:    1,
+  and:   2,
+  shift: 3,
+  plus:  4,
+  times: 5,
+  unary: 6,
+  power: 7,
+}
+
 module.exports = grammar({
   name: 'fbdl',
 
@@ -13,13 +23,19 @@ module.exports = grammar({
   ],
 
   rules: {
-    description: $ => repeat(choice($._meta_statement, $.element_definition)),
+    description: $ => repeat(choice(
+      $._meta_statement,
+      $._constant_definition,
+      $.element_definition
+    )),
 
     comment: $ => token(seq('#', /.*/)),
 
     identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
     _declared_identifier: $ => $.identifier,
+
+    extended_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*\.([A-Z]|[a-z]|[0-9]|_)*/,
 
     _meta_statement: $ => choice(
       $._import_statement,
@@ -31,8 +47,6 @@ module.exports = grammar({
       $.multi_import_statement
     ),
 
-    package_statement: $ => seq('package', $._declared_identifier, $._newline),
-
     single_import_statement: $ => seq('import', $._declared_identifier, $._newline),
 
     multi_import_statement: $ => seq(
@@ -41,9 +55,16 @@ module.exports = grammar({
       $._dedent
     ),
 
-    parameter: $ => seq($.identifier, optional(seq('=', $.identifier))),
+    package_statement: $ => seq('package', $._declared_identifier, $._newline),
 
-    // TODO: Replace identifier on RHS.
+    _constant_definition: $ => choice(
+      $.single_constant_definition,
+    ),
+
+    single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
+
+    parameter: $ => seq($.identifier, optional(seq('=', $.expression))),
+
     parameters_list: $ => seq(
       '(', $.parameter, repeat(seq(',', $.parameter)), ')'
     ),
@@ -69,8 +90,7 @@ module.exports = grammar({
       $._dedent
     ),
 
-    // TODO: Replace identifier on RHS.
-    property_assignment: $ => seq($.identifier, '=', $.identifier),
+    property_assignment: $ => seq($.identifier, '=', $.expression),
 
     _integer_literal: $ => choice(
       $.decimal_literal,
@@ -86,5 +106,54 @@ module.exports = grammar({
     octal_literal: $ => /0(o|O)[0-7]([0-7]|_)*/,
 
     hex_literal: $ => /0(x|X)[0-9|a-f|A-F]([0-9|a-f|A-F]|_)*/,
+
+    logical_operator: $ => choice('and', 'or'),
+
+    comparison_operator: $ => choice(
+      '==',
+      '!=',
+      '<',
+      '<=',
+      '>',
+      '>='
+    ),
+
+    unary_operation: $ => prec(PREC.unary, seq(
+      field('operator', choice('+', '-')),
+      field('argument', $.primary_expression)
+    )),
+
+    binary_operation: $ => {
+      const table = [
+        [prec.left, '+', PREC.plus],
+        [prec.left, '-', PREC.plus],
+        [prec.left, '*', PREC.times],
+        [prec.left, '/', PREC.times],
+        [prec.left, '%', PREC.times],
+        [prec.right, '**', PREC.power],
+        [prec.left, '<<', PREC.shift],
+        [prec.left, '>>', PREC.shift],
+      ];
+
+      return choice(...table.map(([fn, operator, precedence]) => fn(precedence, seq(
+        field('left', $.primary_expression),
+        field('operator', operator),
+        field('right', $.primary_expression)
+      ))));
+    },
+
+    primary_expression: $ => choice(
+      'true',
+      'false',
+      $.identifier,
+      $.extended_identifier,
+      $._integer_literal,
+      $.unary_operation,
+      $.binary_operation,
+    ),
+
+    expression: $ => choice (
+      $.primary_expression,
+    ),
   }
 });
