@@ -1,0 +1,14 @@
+========
+Constant
+========
+
+const PI = 3
+
+const
+	WIDTH = 100
+
+const
+	ONE = 1
+	TWQ = 2
+
+---

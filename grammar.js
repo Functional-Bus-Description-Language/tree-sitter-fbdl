@@ -59,9 +59,16 @@ module.exports = grammar({
 
     _constant_definition: $ => choice(
       $.single_constant_definition,
+      $.multi_constant_definition
     ),
 
     single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
+
+    multi_constant_definition: $ => seq(
+      'const', $._newline, $._indent,
+      repeat1(seq($.identifier, '=', $.primary_expression, $._newline)),
+      $._dedent
+    ),
 
     parameter: $ => seq(
       field('name', $.identifier),
