@@ -63,21 +63,28 @@ module.exports = grammar({
 
     single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
 
-    parameter: $ => seq($.identifier, optional(seq('=', $.expression))),
+    parameter: $ => seq(
+      field('name', $.identifier),
+      optional(seq('=', field('default_value', $.expression)))
+    ),
+
+    parameters: $ => seq($.parameter, repeat(seq(',', $.parameter))),
 
     parameters_list: $ => seq(
-      '(', $.parameter, repeat(seq(',', $.parameter)), ')'
+      '(', optional($.parameters), ')'
     ),
 
     element_type: $ => choice(
+      'func',
       'mask',
+      'param',
     ),
 
     element_definition: $ => seq(
       $.element_type, $.identifier,
       choice(
         $._newline,
-        optional(seq(optional($.parameters_list), $.element_body))
+        seq(optional($.parameters_list), $.element_body)
       )
     ),
 
@@ -85,12 +92,13 @@ module.exports = grammar({
       $._newline,
       $._indent,
       repeat1(choice(
-        $.property_assignment
+        $.element_definition,
+        $.property_assignment,
       )),
       $._dedent
     ),
 
-    property_assignment: $ => seq($.identifier, '=', $.expression),
+    property_assignment: $ => seq($.identifier, '=', $.expression, $._newline),
 
     _integer_literal: $ => choice(
       $.decimal_literal,
@@ -109,6 +117,7 @@ module.exports = grammar({
 
     logical_operator: $ => choice('and', 'or'),
 
+/*
     comparison_operator: $ => choice(
       '==',
       '!=',
@@ -117,6 +126,7 @@ module.exports = grammar({
       '>',
       '>='
     ),
+*/
 
     unary_operation: $ => prec(PREC.unary, seq(
       field('operator', choice('+', '-')),

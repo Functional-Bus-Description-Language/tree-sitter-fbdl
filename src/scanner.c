@@ -54,21 +54,29 @@ bool tree_sitter_fbdl_external_scanner_scan(
 
 //	while (lexer->lookahead == ' ') {lexer->advance(lexer, true);}
 
-	if (valid_symbols[NEWLINE]) {
-		if (lexer->lookahead == '\n') {
+	if (valid_symbols[NEWLINE] && lexer->lookahead == '\n') {
+		lexer->advance(lexer, false);
+
+		while (lexer->lookahead == '\n') {
 			lexer->advance(lexer, false);
-
-			while (lexer->lookahead == '\n') {
-				lexer->advance(lexer, false);
-			}
-
-			lexer->mark_end(lexer);
-			lexer->result_symbol = NEWLINE;
-			return true;
 		}
+
+		lexer->mark_end(lexer);
+		lexer->result_symbol = NEWLINE;
+		return true;
 	}
 
-	if (valid_symbols[INDENT]) {
+	if (valid_symbols[INDENT] && lexer->lookahead == '\t') {
+		unsigned indent = 0;
+		while (indent < scanner->current_indent) {
+			if (lexer->lookahead == '\t') {
+				lexer->advance(lexer, false);
+				indent++;
+			} else {
+				errx(EXIT_FAILURE, "Expecting indent character");
+			}
+		}
+
 		if (lexer->lookahead == '\t') {
 			lexer->advance(lexer, false);
 
@@ -86,6 +94,10 @@ bool tree_sitter_fbdl_external_scanner_scan(
 	if (valid_symbols[DEDENT]) {
 		if (scanner->dedents > 0) {
 			goto dedent;
+		}
+
+		if (lexer->get_column(lexer) != 0) {
+			return false;
 		}
 
 		unsigned indent = 0;
