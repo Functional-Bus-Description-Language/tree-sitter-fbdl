@@ -26,7 +26,8 @@ module.exports = grammar({
     description: $ => repeat(choice(
       $._meta_statement,
       $._constant_definition,
-      $.element_definition
+      $.element_definition,
+      $._element_instantiation
     )),
 
     comment: $ => token(seq('#', /.*/)),
@@ -106,6 +107,29 @@ module.exports = grammar({
     ),
 
     property_assignment: $ => seq($.identifier, '=', $.expression, $._newline),
+
+    _element_instantiation: $ => choice(
+      $.element_definitive_instantiation,
+    ),
+
+    argument: $ => choice(
+      $.expression,
+      seq($._declared_identifier, '=', $.expression)
+    ),
+
+    arguments: $ => seq($.argument, repeat(seq(',', $.argument))),
+
+    arguments_list: $ => seq(
+      '(', optional($.arguments), ')'
+    ),
+
+    element_definitive_instantiation: $ => seq(
+      $.identifier,
+      optional(seq('[', $.expression, ']')),
+      $._declared_identifier,
+      optional($.arguments_list),
+      $._newline
+    ),
 
     _integer_literal: $ => choice(
       $.decimal_literal,
