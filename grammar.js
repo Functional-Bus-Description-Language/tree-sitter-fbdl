@@ -18,7 +18,7 @@ module.exports = grammar({
 
   externals: $ => [
     $._indent,
-    $._dedent,
+    $.dedent,
     $._newline
   ],
 
@@ -36,7 +36,7 @@ module.exports = grammar({
 
     _declared_identifier: $ => $.identifier,
 
-    extended_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*\.([A-Z]|[a-z]|[0-9]|_)*/,
+    compound_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*\.([A-Z]|[a-z]|[0-9]|_)*/,
 
     _meta_statement: $ => choice(
       $._import_statement,
@@ -53,7 +53,7 @@ module.exports = grammar({
     multi_import_statement: $ => seq(
       'import', $._newline,
       $._indent, repeat1(seq($._declared_identifier, $._newline)),
-      $._dedent
+      $.dedent
     ),
 
     package_statement: $ => seq('package', $._declared_identifier, $._newline),
@@ -68,7 +68,7 @@ module.exports = grammar({
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
       repeat1(seq($.identifier, '=', $.primary_expression, $._newline)),
-      $._dedent
+      $.dedent
     ),
 
     parameter: $ => seq(
@@ -83,9 +83,11 @@ module.exports = grammar({
     ),
 
     element_type: $ => choice(
+      'config',
       'func',
       'mask',
       'param',
+      'status'
     ),
 
     element_definition: $ => seq(
@@ -101,15 +103,17 @@ module.exports = grammar({
       $._indent,
       repeat1(choice(
         $.element_definition,
-        $.property_assignment,
+        $._element_instantiation,
+        $.property_assignment
       )),
-      $._dedent
+      $.dedent
     ),
 
     property_assignment: $ => seq($.identifier, '=', $.expression, $._newline),
 
     _element_instantiation: $ => choice(
       $.element_definitive_instantiation,
+      $.element_anonymous_instantiation,
     ),
 
     argument: $ => choice(
@@ -129,6 +133,16 @@ module.exports = grammar({
       $._declared_identifier,
       optional($.arguments_list),
       $._newline
+    ),
+
+    element_anonymous_instantiation: $ => seq(
+      $.identifier,
+      optional(seq('[', $.expression, ']')),
+      $.element_type,
+      choice(
+        $._newline,
+        $.element_body
+      )
     ),
 
     _integer_literal: $ => choice(
@@ -187,7 +201,7 @@ module.exports = grammar({
       'true',
       'false',
       $.identifier,
-      $.extended_identifier,
+      $.compound_identifier,
       $._integer_literal,
       $.unary_operation,
       $.binary_operation,
