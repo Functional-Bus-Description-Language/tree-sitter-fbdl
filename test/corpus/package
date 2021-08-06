@@ -1,9 +1,0 @@
-=======
-Package
-=======
-
-package foo
-
----
-
-(description (package_statement (identifier)))

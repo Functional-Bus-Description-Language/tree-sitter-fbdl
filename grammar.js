@@ -36,11 +36,10 @@ module.exports = grammar({
 
     _declared_identifier: $ => $.identifier,
 
-    compound_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*\.([A-Z]|[a-z]|[0-9]|_)*/,
+    qualified_identifier: $ => seq($.identifier, '.', $.identifier),
 
     _meta_statement: $ => choice(
       $._import_statement,
-      $.package_statement
     ),
 
     _import_statement: $ => choice(
@@ -55,8 +54,6 @@ module.exports = grammar({
       $._indent, repeat1(seq($._declared_identifier, $._newline)),
       $.dedent
     ),
-
-    package_statement: $ => seq('package', $._declared_identifier, $._newline),
 
     _constant_definition: $ => choice(
       $.single_constant_definition,
@@ -83,6 +80,7 @@ module.exports = grammar({
     ),
 
     element_type: $ => choice(
+      'block',
       'config',
       'func',
       'mask',
@@ -201,7 +199,7 @@ module.exports = grammar({
       'true',
       'false',
       $.identifier,
-      $.compound_identifier,
+      $.qualified_identifier,
       $._integer_literal,
       $.unary_operation,
       $.binary_operation,
