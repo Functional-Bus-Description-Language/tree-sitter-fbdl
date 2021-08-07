@@ -1,0 +1,14 @@
+=====================
+Element instantiation
+=====================
+
+elem1 my_mask
+
+elem2 [10]my_mask
+
+elem3 mask
+
+elem4 mask
+	width = 12
+
+---
