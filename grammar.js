@@ -18,7 +18,7 @@ module.exports = grammar({
 
   externals: $ => [
     $._indent,
-    $.dedent,
+    $._dedent,
     $._newline
   ],
 
@@ -47,12 +47,12 @@ module.exports = grammar({
       $.multi_import_statement
     ),
 
-    single_import_statement: $ => seq('import', $._declared_identifier, $._newline),
+    single_import_statement: $ => seq('import', $.string_literal, $._newline),
 
     multi_import_statement: $ => seq(
       'import', $._newline,
-      $._indent, repeat1(seq($._declared_identifier, $._newline)),
-      $.dedent
+      $._indent, repeat1(seq($.string_literal, $._newline)),
+      $._dedent
     ),
 
     _constant_definition: $ => choice(
@@ -65,7 +65,7 @@ module.exports = grammar({
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
       repeat1(seq($.identifier, '=', $.primary_expression, $._newline)),
-      $.dedent
+      $._dedent
     ),
 
     parameter: $ => seq(
@@ -80,6 +80,7 @@ module.exports = grammar({
     ),
 
     element_type: $ => choice(
+      'bus',
       'block',
       'config',
       'func',
@@ -104,7 +105,7 @@ module.exports = grammar({
         $._element_instantiation,
         $.property_assignment
       )),
-      $.dedent
+      $._dedent
     ),
 
     property_assignment: $ => seq($.identifier, '=', $.expression, $._newline),
@@ -142,6 +143,8 @@ module.exports = grammar({
         $.element_body
       )
     ),
+
+    string_literal: $ => seq('"', /[^"]*/, '"'),
 
     _integer_literal: $ => choice(
       $.decimal_literal,
