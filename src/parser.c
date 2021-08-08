@@ -14,7 +14,7 @@
 #define EXTERNAL_TOKEN_COUNT 3
 #define FIELD_COUNT 6
 #define MAX_ALIAS_SEQUENCE_LENGTH 7
-#define PRODUCTION_ID_COUNT 5
+#define PRODUCTION_ID_COUNT 6
 
 enum {
   sym_comment = 1,
@@ -575,7 +575,8 @@ static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [1] = {.index = 0, .length = 2},
   [2] = {.index = 2, .length = 1},
   [3] = {.index = 3, .length = 3},
-  [4] = {.index = 6, .length = 2},
+  [4] = {.index = 6, .length = 1},
+  [5] = {.index = 7, .length = 2},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
@@ -589,6 +590,8 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
     {field_operator, 1},
     {field_right, 2},
   [6] =
+    {field_name, 1},
+  [7] =
     {field_default_value, 2},
     {field_name, 0},
 };
@@ -3774,8 +3777,8 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [105] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_element_definitive_instantiation, 6),
   [107] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_single_import_statement, 3),
   [109] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_single_import_statement, 3),
-  [111] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_single_constant_definition, 5),
-  [113] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_single_constant_definition, 5),
+  [111] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_single_constant_definition, 5, .production_id = 4),
+  [113] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_single_constant_definition, 5, .production_id = 4),
   [115] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_multi_constant_definition, 5),
   [117] = {.entry = {.count = 1, .reusable = false}}, REDUCE(sym_multi_constant_definition, 5),
   [119] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_unary_operation, 2, .production_id = 1),
@@ -3846,7 +3849,7 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [253] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_argument, 1),
   [255] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_argument, 3),
   [257] = {.entry = {.count = 1, .reusable = true}}, SHIFT(31),
-  [259] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_parameter, 3, .production_id = 4),
+  [259] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_parameter, 3, .production_id = 5),
   [261] = {.entry = {.count = 1, .reusable = true}}, SHIFT(128),
   [263] = {.entry = {.count = 1, .reusable = true}}, SHIFT(129),
   [265] = {.entry = {.count = 1, .reusable = true}}, SHIFT(58),

@@ -60,7 +60,7 @@ module.exports = grammar({
       $.multi_constant_definition
     ),
 
-    single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
+    single_constant_definition: $ => seq('const', field('name', $.identifier), '=', $.expression, $._newline),
 
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
