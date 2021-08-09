@@ -60,7 +60,7 @@ module.exports = grammar({
       $.multi_constant_definition
     ),
 
-    single_constant_definition: $ => seq('const', field('name', $.identifier), '=', $.expression, $._newline),
+    single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
 
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
@@ -69,8 +69,8 @@ module.exports = grammar({
     ),
 
     parameter: $ => seq(
-      field('name', $.identifier),
-      optional(seq('=', field('default_value', $.expression)))
+      $.identifier,
+      optional(seq('=', $.expression))
     ),
 
     parameters: $ => seq($.parameter, repeat(seq(',', $.parameter))),
@@ -175,8 +175,8 @@ module.exports = grammar({
 */
 
     unary_operation: $ => prec(PREC.unary, seq(
-      field('operator', choice('+', '-')),
-      field('argument', $.primary_expression)
+      choice('+', '-'),
+      $.primary_expression
     )),
 
     binary_operation: $ => {
@@ -192,9 +192,9 @@ module.exports = grammar({
       ];
 
       return choice(...table.map(([fn, operator, precedence]) => fn(precedence, seq(
-        field('left', $.primary_expression),
-        field('operator', operator),
-        field('right', $.primary_expression)
+        $.primary_expression,
+        operator,
+        $.primary_expression
       ))));
     },
 
