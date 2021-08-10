@@ -1,11 +1,12 @@
 const PREC = {
-  or:    1,
-  and:   2,
-  shift: 3,
-  plus:  4,
-  times: 5,
-  unary: 6,
-  power: 7,
+  parenthesized_expression: 1,
+  or:    2,
+  and:   3,
+  shift: 4,
+  plus:  5,
+  times: 6,
+  unary: 7,
+  power: 8,
 }
 
 module.exports = grammar({
@@ -198,6 +199,12 @@ module.exports = grammar({
       ))));
     },
 
+    parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
+      '(',
+      $.expression,
+      ')'
+    )),
+
     primary_expression: $ => choice(
       'true',
       'false',
@@ -206,6 +213,7 @@ module.exports = grammar({
       $._integer_literal,
       $.unary_operation,
       $.binary_operation,
+      $.parenthesized_expression,
     ),
 
     expression: $ => choice (
