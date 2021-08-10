@@ -48,11 +48,13 @@ module.exports = grammar({
       $.multi_import_statement
     ),
 
-    single_import_statement: $ => seq('import', $.string_literal, $._newline),
+    single_import_statement: $ => seq(
+      'import', optional($.identifier), $.string_literal, $._newline
+    ),
 
     multi_import_statement: $ => seq(
       'import', $._newline,
-      $._indent, repeat1(seq($.string_literal, $._newline)),
+      $._indent, repeat1(seq(optional($.identifier), $.string_literal, $._newline)),
       $._dedent
     ),
 
@@ -61,7 +63,9 @@ module.exports = grammar({
       $.multi_constant_definition
     ),
 
-    single_constant_definition: $ => seq('const', $.identifier, '=', $.expression, $._newline),
+    single_constant_definition: $ => seq(
+      'const', $.identifier, '=', $.expression, $._newline
+    ),
 
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
