@@ -73,15 +73,15 @@ module.exports = grammar({
       $._dedent
     ),
 
-    parameter: $ => seq(
+    _parameter: $ => seq(
       $.identifier,
       optional(seq('=', $.expression))
     ),
 
-    parameters: $ => seq($.parameter, repeat(seq(',', $.parameter))),
+    _parameters: $ => seq($._parameter, repeat(seq(',', $._parameter))),
 
     parameter_list: $ => seq(
-      '(', optional($.parameters), ')'
+      '(', optional($._parameters), ')'
     ),
 
     element_type: $ => choice(
