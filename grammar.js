@@ -80,7 +80,7 @@ module.exports = grammar({
 
     parameters: $ => seq($.parameter, repeat(seq(',', $.parameter))),
 
-    parameters_list: $ => seq(
+    parameter_list: $ => seq(
       '(', optional($.parameters), ')'
     ),
 
@@ -98,7 +98,7 @@ module.exports = grammar({
       $.element_type, $.identifier,
       choice(
         $._newline,
-        seq(optional($.parameters_list), $.element_body)
+        seq(optional($.parameter_list), $.element_body)
       )
     ),
 
@@ -127,7 +127,7 @@ module.exports = grammar({
 
     arguments: $ => seq($.argument, repeat(seq(',', $.argument))),
 
-    arguments_list: $ => seq(
+    argument_list: $ => seq(
       '(', optional($.arguments), ')'
     ),
 
@@ -135,7 +135,7 @@ module.exports = grammar({
       $.identifier,
       optional(seq('[', $.expression, ']')),
       $._declared_identifier,
-      optional($.arguments_list),
+      optional($.argument_list),
       $._newline
     ),
 

@@ -304,7 +304,7 @@
         }
       ]
     },
-    "parameters_list": {
+    "parameter_list": {
       "type": "SEQ",
       "members": [
         {
@@ -388,7 +388,7 @@
                   "members": [
                     {
                       "type": "SYMBOL",
-                      "name": "parameters_list"
+                      "name": "parameter_list"
                     },
                     {
                       "type": "BLANK"
@@ -527,7 +527,7 @@
         }
       ]
     },
-    "arguments_list": {
+    "argument_list": {
       "type": "SEQ",
       "members": [
         {
@@ -593,7 +593,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "arguments_list"
+              "name": "argument_list"
             },
             {
               "type": "BLANK"
