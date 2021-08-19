@@ -125,10 +125,10 @@ module.exports = grammar({
       seq($._declared_identifier, '=', $.expression)
     ),
 
-    arguments: $ => seq($.argument, repeat(seq(',', $.argument))),
+    _arguments: $ => seq($.argument, repeat(seq(',', $.argument))),
 
     argument_list: $ => seq(
-      '(', optional($.arguments), ')'
+      '(', optional($._arguments), ')'
     ),
 
     element_definitive_instantiation: $ => seq(
