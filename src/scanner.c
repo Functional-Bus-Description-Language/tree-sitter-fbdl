@@ -88,10 +88,17 @@ bool tree_sitter_fbdl_external_scanner_scan(
 
 		if (scanner->dedents > 0) {
 			if (valid_symbols[DEDENT]) {
+#ifdef DEBUG
+				printf("scanner.dedents = %d, going to dedent", scanner->dedents);
+#endif
 				goto dedent;
 			}
 		}
 
+		// Handle scenario where previous dedent consumed the indentation.
+		if (lexer->get_column(lexer) != 0) {
+			return false;
+		}
 		unsigned indent = 0;
 		while (lexer->lookahead == '\t') {
 			indent++;
