@@ -120,12 +120,12 @@ module.exports = grammar({
       $.element_anonymous_instantiation,
     ),
 
-    argument: $ => choice(
+    _argument: $ => seq(
+      optional(seq($._declared_identifier, '=')),
       $.expression,
-      seq($._declared_identifier, '=', $.expression)
     ),
 
-    _arguments: $ => seq($.argument, repeat(seq(',', $.argument))),
+    _arguments: $ => seq($._argument, repeat(seq(',', $._argument))),
 
     argument_list: $ => seq(
       '(', optional($._arguments), ')'
