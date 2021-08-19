@@ -502,7 +502,7 @@
         }
       ]
     },
-    "arguments": {
+    "_arguments": {
       "type": "SEQ",
       "members": [
         {
@@ -539,7 +539,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "arguments"
+              "name": "_arguments"
             },
             {
               "type": "BLANK"

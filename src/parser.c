@@ -75,7 +75,7 @@ enum {
   sym_property_assignment = 56,
   sym__element_instantiation = 57,
   sym_argument = 58,
-  sym_arguments = 59,
+  sym__arguments = 59,
   sym_argument_list = 60,
   sym_element_definitive_instantiation = 61,
   sym_element_anonymous_instantiation = 62,
@@ -91,7 +91,7 @@ enum {
   aux_sym_multi_constant_definition_repeat1 = 72,
   aux_sym__parameters_repeat1 = 73,
   aux_sym_element_body_repeat1 = 74,
-  aux_sym_arguments_repeat1 = 75,
+  aux_sym__arguments_repeat1 = 75,
 };
 
 static const char * const ts_symbol_names[] = {
@@ -154,7 +154,7 @@ static const char * const ts_symbol_names[] = {
   [sym_property_assignment] = "property_assignment",
   [sym__element_instantiation] = "_element_instantiation",
   [sym_argument] = "argument",
-  [sym_arguments] = "arguments",
+  [sym__arguments] = "_arguments",
   [sym_argument_list] = "argument_list",
   [sym_element_definitive_instantiation] = "element_definitive_instantiation",
   [sym_element_anonymous_instantiation] = "element_anonymous_instantiation",
@@ -170,7 +170,7 @@ static const char * const ts_symbol_names[] = {
   [aux_sym_multi_constant_definition_repeat1] = "multi_constant_definition_repeat1",
   [aux_sym__parameters_repeat1] = "_parameters_repeat1",
   [aux_sym_element_body_repeat1] = "element_body_repeat1",
-  [aux_sym_arguments_repeat1] = "arguments_repeat1",
+  [aux_sym__arguments_repeat1] = "_arguments_repeat1",
 };
 
 static const TSSymbol ts_symbol_map[] = {
@@ -233,7 +233,7 @@ static const TSSymbol ts_symbol_map[] = {
   [sym_property_assignment] = sym_property_assignment,
   [sym__element_instantiation] = sym__element_instantiation,
   [sym_argument] = sym_argument,
-  [sym_arguments] = sym_arguments,
+  [sym__arguments] = sym__arguments,
   [sym_argument_list] = sym_argument_list,
   [sym_element_definitive_instantiation] = sym_element_definitive_instantiation,
   [sym_element_anonymous_instantiation] = sym_element_anonymous_instantiation,
@@ -249,7 +249,7 @@ static const TSSymbol ts_symbol_map[] = {
   [aux_sym_multi_constant_definition_repeat1] = aux_sym_multi_constant_definition_repeat1,
   [aux_sym__parameters_repeat1] = aux_sym__parameters_repeat1,
   [aux_sym_element_body_repeat1] = aux_sym_element_body_repeat1,
-  [aux_sym_arguments_repeat1] = aux_sym_arguments_repeat1,
+  [aux_sym__arguments_repeat1] = aux_sym__arguments_repeat1,
 };
 
 static const TSSymbolMetadata ts_symbol_metadata[] = {
@@ -489,8 +489,8 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = true,
     .named = true,
   },
-  [sym_arguments] = {
-    .visible = true,
+  [sym__arguments] = {
+    .visible = false,
     .named = true,
   },
   [sym_argument_list] = {
@@ -553,7 +553,7 @@ static const TSSymbolMetadata ts_symbol_metadata[] = {
     .visible = false,
     .named = false,
   },
-  [aux_sym_arguments_repeat1] = {
+  [aux_sym__arguments_repeat1] = {
     .visible = false,
     .named = false,
   },
@@ -1664,7 +1664,7 @@ static const uint16_t ts_small_parse_table[] = {
     STATE(121), 1,
       sym_expression,
     STATE(127), 1,
-      sym_arguments,
+      sym__arguments,
     STATE(144), 1,
       sym__declared_identifier,
     ACTIONS(39), 2,
@@ -3425,7 +3425,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(264), 1,
       anon_sym_RPAREN,
     STATE(103), 1,
-      aux_sym_arguments_repeat1,
+      aux_sym__arguments_repeat1,
   [2371] = 4,
     ACTIONS(3), 1,
       sym_comment,
@@ -3434,7 +3434,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(268), 1,
       anon_sym_RPAREN,
     STATE(103), 1,
-      aux_sym_arguments_repeat1,
+      aux_sym__arguments_repeat1,
   [2384] = 4,
     ACTIONS(3), 1,
       sym_comment,
@@ -3443,7 +3443,7 @@ static const uint16_t ts_small_parse_table[] = {
     ACTIONS(270), 1,
       anon_sym_RPAREN,
     STATE(104), 1,
-      aux_sym_arguments_repeat1,
+      aux_sym__arguments_repeat1,
   [2397] = 2,
     ACTIONS(3), 1,
       sym_comment,
@@ -4048,11 +4048,11 @@ static const TSParseActionEntry ts_parse_actions[] = {
   [255] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__parameter, 1),
   [257] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__parameters, 1),
   [259] = {.entry = {.count = 1, .reusable = true}}, SHIFT(39),
-  [261] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym_arguments_repeat1, 2), SHIFT_REPEAT(5),
-  [264] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_arguments_repeat1, 2),
+  [261] = {.entry = {.count = 2, .reusable = true}}, REDUCE(aux_sym__arguments_repeat1, 2), SHIFT_REPEAT(5),
+  [264] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym__arguments_repeat1, 2),
   [266] = {.entry = {.count = 1, .reusable = true}}, SHIFT(5),
-  [268] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_arguments, 2),
-  [270] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym_arguments, 1),
+  [268] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__arguments, 2),
+  [270] = {.entry = {.count = 1, .reusable = true}}, REDUCE(sym__arguments, 1),
   [272] = {.entry = {.count = 1, .reusable = true}}, REDUCE(aux_sym_multi_import_statement_repeat1, 3),
   [274] = {.entry = {.count = 1, .reusable = true}}, SHIFT(63),
   [276] = {.entry = {.count = 1, .reusable = true}}, SHIFT(35),
