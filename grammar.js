@@ -95,10 +95,10 @@ module.exports = grammar({
     ),
 
     element_definition: $ => seq(
-      $.element_type, $.identifier,
+      $.element_type, $.identifier, optional($.parameter_list),
       choice(
         $._newline,
-        seq(optional($.parameter_list), $.element_body)
+        $.element_body
       )
     ),
 
