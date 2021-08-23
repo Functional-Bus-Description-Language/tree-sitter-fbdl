@@ -64,7 +64,7 @@ module.exports = grammar({
     ),
 
     single_constant_definition: $ => seq(
-      'const', $.identifier, '=', $._expression, $._newline
+      'const', $.identifier, '=', $.expression, $._newline
     ),
 
     multi_constant_definition: $ => seq(
@@ -75,7 +75,7 @@ module.exports = grammar({
 
     _parameter: $ => seq(
       $.identifier,
-      optional(seq('=', $._expression))
+      optional(seq('=', $.expression))
     ),
 
     _parameters: $ => seq($._parameter, repeat(seq(',', $._parameter))),
@@ -113,7 +113,7 @@ module.exports = grammar({
       $._dedent
     ),
 
-    property_assignment: $ => seq($.identifier, '=', $._expression, $._newline),
+    property_assignment: $ => seq($.identifier, '=', $.expression, $._newline),
 
     _element_instantiation: $ => choice(
       $.element_definitive_instantiation,
@@ -122,7 +122,7 @@ module.exports = grammar({
 
     _argument: $ => seq(
       optional(seq($._declared_identifier, '=')),
-      $._expression,
+      $.expression,
     ),
 
     _arguments: $ => seq($._argument, repeat(seq(',', $._argument))),
@@ -133,7 +133,7 @@ module.exports = grammar({
 
     element_definitive_instantiation: $ => seq(
       $.identifier,
-      optional(seq('[', $._expression, ']')),
+      optional(seq('[', $.expression, ']')),
       $._declared_identifier,
       optional($.argument_list),
       $._newline
@@ -141,7 +141,7 @@ module.exports = grammar({
 
     element_anonymous_instantiation: $ => seq(
       $.identifier,
-      optional(seq('[', $._expression, ']')),
+      optional(seq('[', $.expression, ']')),
       $.element_type,
       choice(
         $._newline,
@@ -205,7 +205,7 @@ module.exports = grammar({
 
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
       '(',
-      $._expression,
+      $.expression,
       ')'
     )),
 
@@ -220,7 +220,7 @@ module.exports = grammar({
       $.parenthesized_expression,
     ),
 
-    _expression: $ => choice (
+    expression: $ => choice (
       $.primary_expression,
     ),
   }
