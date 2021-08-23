@@ -8,11 +8,11 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -89,11 +89,11 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -166,11 +166,11 @@
           "named": true
         },
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -180,21 +180,6 @@
     "type": "element_type",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "expression",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "primary_expression",
-          "named": true
-        }
-      ]
-    }
   },
   {
     "type": "multi_constant_definition",
@@ -243,11 +228,11 @@
       "required": false,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -262,7 +247,7 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -324,11 +309,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -358,11 +343,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         }
       ]
