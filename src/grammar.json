@@ -418,6 +418,10 @@
             "members": [
               {
                 "type": "SYMBOL",
+                "name": "_constant_definition"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "element_definition"
               },
               {

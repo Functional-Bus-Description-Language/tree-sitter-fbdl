@@ -106,6 +106,7 @@ module.exports = grammar({
       $._newline,
       $._indent,
       repeat1(choice(
+        $._constant_definition,
         $.element_definition,
         $._element_instantiation,
         $.property_assignment

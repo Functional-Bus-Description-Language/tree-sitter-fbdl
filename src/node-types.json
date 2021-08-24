@@ -120,7 +120,15 @@
           "named": true
         },
         {
+          "type": "multi_constant_definition",
+          "named": true
+        },
+        {
           "type": "property_assignment",
+          "named": true
+        },
+        {
+          "type": "single_constant_definition",
           "named": true
         }
       ]
