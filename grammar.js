@@ -97,7 +97,8 @@ module.exports = grammar({
     element_type_definition: $ => seq(
       'type',
       $.identifier, optional($.parameter_list),
-      $._declared_identifier, optional($.argument_list),
+      choice($._declared_identifier, $.qualified_identifier),
+      optional($.argument_list),
       choice(
         $._newline,
         $.element_body
@@ -137,7 +138,7 @@ module.exports = grammar({
     element_definitive_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
-      $._declared_identifier,
+      choice($._declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       $._newline
     ),

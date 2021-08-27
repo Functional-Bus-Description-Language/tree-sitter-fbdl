@@ -153,6 +153,10 @@
         {
           "type": "primary_expression",
           "named": true
+        },
+        {
+          "type": "qualified_identifier",
+          "named": true
         }
       ]
     }
@@ -184,6 +188,10 @@
         },
         {
           "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
           "named": true
         }
       ]

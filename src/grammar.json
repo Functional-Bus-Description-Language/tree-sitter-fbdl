@@ -386,8 +386,17 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_declared_identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_declared_identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "qualified_identifier"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -604,8 +613,17 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_declared_identifier"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_declared_identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "qualified_identifier"
+            }
+          ]
         },
         {
           "type": "CHOICE",
