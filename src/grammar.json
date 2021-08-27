@@ -16,7 +16,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "element_definition"
+            "name": "element_type_definition"
           },
           {
             "type": "SYMBOL",
@@ -362,12 +362,12 @@
         }
       ]
     },
-    "element_definition": {
+    "element_type_definition": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "element_type"
+          "type": "STRING",
+          "value": "type"
         },
         {
           "type": "SYMBOL",
@@ -379,6 +379,22 @@
             {
               "type": "SYMBOL",
               "name": "parameter_list"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_declared_identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "argument_list"
             },
             {
               "type": "BLANK"
@@ -422,7 +438,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "element_definition"
+                "name": "element_type_definition"
               },
               {
                 "type": "SYMBOL",

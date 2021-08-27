@@ -46,11 +46,11 @@
           "named": true
         },
         {
-          "type": "element_definition",
+          "type": "element_definitive_instantiation",
           "named": true
         },
         {
-          "type": "element_definitive_instantiation",
+          "type": "element_type_definition",
           "named": true
         },
         {
@@ -112,11 +112,11 @@
           "named": true
         },
         {
-          "type": "element_definition",
+          "type": "element_definitive_instantiation",
           "named": true
         },
         {
-          "type": "element_definitive_instantiation",
+          "type": "element_type_definition",
           "named": true
         },
         {
@@ -129,33 +129,6 @@
         },
         {
           "type": "single_constant_definition",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "element_definition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "element_body",
-          "named": true
-        },
-        {
-          "type": "element_type",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "parameter_list",
           "named": true
         }
       ]
@@ -188,6 +161,33 @@
     "type": "element_type",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "element_type_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "element_body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "multi_constant_definition",
@@ -538,6 +538,10 @@
   },
   {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "type",
     "named": false
   }
 ]
