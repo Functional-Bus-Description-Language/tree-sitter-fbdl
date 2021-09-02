@@ -140,7 +140,10 @@ module.exports = grammar({
       optional(seq('[', $._expression, ']')),
       choice($._declared_identifier, $.qualified_identifier),
       optional($.argument_list),
-      $._newline
+      choice(
+        $._newline,
+        $.element_body
+      )
     ),
 
     element_anonymous_instantiation: $ => seq(

@@ -147,6 +147,10 @@
           "named": true
         },
         {
+          "type": "element_body",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },

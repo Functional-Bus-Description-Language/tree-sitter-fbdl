@@ -638,8 +638,17 @@
           ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_newline"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_newline"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "element_body"
+            }
+          ]
         }
       ]
     },
