@@ -214,7 +214,11 @@ module.exports = grammar({
       ))));
     },
 
-    call: $ => prec(PREC.call, seq($.identifier, '(', repeat1($._expression), ')')),
+    call: $ => prec(PREC.call, seq(
+        $.identifier, '(',
+        $._expression, repeat(seq(',', $._expression)),
+        ')'
+    )),
 
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
       '(',
