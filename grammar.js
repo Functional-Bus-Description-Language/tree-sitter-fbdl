@@ -225,6 +225,7 @@ module.exports = grammar({
       $.unary_operation,
       $.binary_operation,
       $.parenthesized_expression,
+      $.string_literal,
     ),
 
     _expression: $ => choice (

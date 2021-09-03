@@ -314,6 +314,10 @@
           "named": true
         },
         {
+          "type": "string_literal",
+          "named": true
+        },
+        {
           "type": "unary_operation",
           "named": true
         }
