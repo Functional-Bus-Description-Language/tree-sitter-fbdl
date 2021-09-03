@@ -320,6 +320,10 @@
         {
           "type": "unary_operation",
           "named": true
+        },
+        {
+          "type": "zero_literal",
+          "named": true
         }
       ]
     }
@@ -559,5 +563,9 @@
   {
     "type": "type",
     "named": false
+  },
+  {
+    "type": "zero_literal",
+    "named": true
   }
 ]

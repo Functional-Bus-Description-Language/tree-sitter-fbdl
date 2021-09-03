@@ -159,11 +159,14 @@ module.exports = grammar({
     string_literal: $ => seq('"', /[^"]*/, '"'),
 
     _integer_literal: $ => choice(
+      $.zero_literal,
       $.decimal_literal,
       $.binary_literal,
       $.octal_literal,
       $.hex_literal
     ),
+
+    zero_literal: $ => /0/,
 
     decimal_literal: $ => /[1-9]([0-9]|_)*/,
 
