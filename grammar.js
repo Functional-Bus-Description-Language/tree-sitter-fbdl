@@ -7,6 +7,7 @@ const PREC = {
   times: 6,
   unary: 7,
   power: 8,
+  call:  9,
 }
 
 module.exports = grammar({
@@ -213,6 +214,8 @@ module.exports = grammar({
       ))));
     },
 
+    call: $ => prec(PREC.call, seq($.identifier, '(', repeat1($._expression), ')')),
+
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
       '(',
       $._expression,
@@ -222,6 +225,7 @@ module.exports = grammar({
     primary_expression: $ => choice(
       'true',
       'false',
+      $.call,
       $.identifier,
       $.qualified_identifier,
       $._integer_literal,

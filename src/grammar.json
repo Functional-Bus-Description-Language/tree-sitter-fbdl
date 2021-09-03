@@ -977,6 +977,34 @@
         }
       ]
     },
+    "call": {
+      "type": "PREC",
+      "value": 9,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "identifier"
+          },
+          {
+            "type": "STRING",
+            "value": "("
+          },
+          {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": ")"
+          }
+        ]
+      }
+    },
     "parenthesized_expression": {
       "type": "PREC",
       "value": 1,
@@ -1008,6 +1036,10 @@
         {
           "type": "STRING",
           "value": "false"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call"
         },
         {
           "type": "SYMBOL",

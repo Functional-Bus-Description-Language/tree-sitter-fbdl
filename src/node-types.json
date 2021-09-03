@@ -34,6 +34,25 @@
     }
   },
   {
+    "type": "call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "description",
     "named": true,
     "fields": {},
@@ -287,6 +306,10 @@
         },
         {
           "type": "binary_operation",
+          "named": true
+        },
+        {
+          "type": "call",
           "named": true
         },
         {
