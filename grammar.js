@@ -215,9 +215,7 @@ module.exports = grammar({
     },
 
     call: $ => prec(PREC.call, seq(
-        $.identifier, '(',
-        $._expression, repeat(seq(',', $._expression)),
-        ')'
+        $.identifier, '(', $._expression, repeat(seq(',', $._expression)), ')'
     )),
 
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
@@ -225,6 +223,10 @@ module.exports = grammar({
       $._expression,
       ')'
     )),
+
+    subscript: $ => seq(
+      choice($._declared_identifier, $.qualified_identifier), '[', $._expression, ']'
+    ),
 
     primary_expression: $ => choice(
       'true',
@@ -237,6 +239,7 @@ module.exports = grammar({
       $.binary_operation,
       $.parenthesized_expression,
       $.string_literal,
+      $.subscript,
     ),
 
     _expressions: $ => seq($._expression, repeat(seq(',', $._expression))),

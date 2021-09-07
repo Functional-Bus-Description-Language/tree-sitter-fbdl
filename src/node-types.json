@@ -384,6 +384,10 @@
           "named": true
         },
         {
+          "type": "subscript",
+          "named": true
+        },
+        {
           "type": "unary_operation",
           "named": true
         },
@@ -478,6 +482,33 @@
     "type": "string_literal",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "subscript",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "unary_operation",
