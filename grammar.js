@@ -239,8 +239,13 @@ module.exports = grammar({
       $.string_literal,
     ),
 
+    _expressions: $ => seq($._expression, repeat(seq(',', $._expression))),
+
+    expression_list: $ => seq ('[', optional($._expressions), ']'),
+
     _expression: $ => choice (
       $.primary_expression,
+      $.expression_list,
     ),
   }
 });
