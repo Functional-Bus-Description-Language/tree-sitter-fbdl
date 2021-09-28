@@ -6,7 +6,7 @@
 
 #include "tree_sitter/parser.h"
 
-#define DEBUG
+//#define DEBUG
 
 enum TokenType {
 	INDENT,
@@ -92,6 +92,14 @@ bool tree_sitter_fbdl_external_scanner_scan(
 				printf("scanner.dedents = %d, going to dedent", scanner->dedents);
 #endif
 				goto dedent;
+			}
+		}
+
+		// Consume line feeds before indent.
+		// This is needed to handle poorly aligned comments.
+		if (valid_symbols[INDENT]) {
+			while (lexer->lookahead == '\n') {
+				lexer->advance(lexer, false);
 			}
 		}
 
