@@ -6,7 +6,7 @@
 
 #include "tree_sitter/parser.h"
 
-//#define DEBUG
+#define DEBUG
 
 enum TokenType {
 	INDENT,

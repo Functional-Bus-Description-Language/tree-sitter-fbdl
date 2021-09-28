@@ -32,7 +32,7 @@ module.exports = grammar({
       $._element_instantiation
     )),
 
-    comment: $ => token(seq('#', /.*/)),
+    comment: $ => token(seq('#', /.*\n/)),
 
     identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
