@@ -765,6 +765,10 @@
       "type": "PATTERN",
       "value": "0(x|X)[0-9|a-f|A-F]([0-9|a-f|A-F]|_)*"
     },
+    "bit_literal": {
+      "type": "PATTERN",
+      "value": "(b|B|o|O|x|X)\\\"([0-9]|[a-f]|[A-F]|h|H|l|L|u|U|x|X|w|W|z|Z|-)*\\\""
+    },
     "logical_operator": {
       "type": "CHOICE",
       "members": [
@@ -1115,6 +1119,10 @@
         {
           "type": "SYMBOL",
           "name": "subscript"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bit_literal"
         }
       ]
     },

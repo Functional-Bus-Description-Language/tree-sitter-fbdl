@@ -177,6 +177,8 @@ module.exports = grammar({
 
     hex_literal: $ => /0(x|X)[0-9|a-f|A-F]([0-9|a-f|A-F]|_)*/,
 
+    bit_literal: $=> /(b|B|o|O|x|X)\"([0-9]|[a-f]|[A-F]|h|H|l|L|u|U|x|X|w|W|z|Z|-)*\"/,
+
     logical_operator: $ => choice('and', 'or'),
 
 /*
@@ -240,6 +242,7 @@ module.exports = grammar({
       $.parenthesized_expression,
       $.string_literal,
       $.subscript,
+      $.bit_literal,
     ),
 
     _expressions: $ => seq($._expression, repeat(seq(',', $._expression))),

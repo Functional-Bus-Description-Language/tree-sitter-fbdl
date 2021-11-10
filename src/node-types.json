@@ -352,6 +352,10 @@
           "named": true
         },
         {
+          "type": "bit_literal",
+          "named": true
+        },
+        {
           "type": "call",
           "named": true
         },
@@ -595,6 +599,10 @@
   },
   {
     "type": "binary_literal",
+    "named": true
+  },
+  {
+    "type": "bit_literal",
     "named": true
   },
   {
