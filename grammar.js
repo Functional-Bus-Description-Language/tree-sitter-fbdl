@@ -124,12 +124,14 @@ module.exports = grammar({
 
     multi_property_assignment: $ => seq(
       $._property_assignment,
-      repeat(seq(';', $._property_assignment))
+      repeat(seq(';', $._property_assignment)),
+      $._newline
     ),
 
     _element_instantiation: $ => choice(
       $.element_definitive_instantiation,
-      $.element_anonymous_instantiation,
+      $.element_anonymous_single_line_instantiation,
+      $.element_anonymous_multi_line_instantiation,
     ),
 
     _argument: $ => seq(
@@ -154,14 +156,21 @@ module.exports = grammar({
       )
     ),
 
-    element_anonymous_instantiation: $ => seq(
+    element_anonymous_single_line_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
       $.element_type,
       choice(
         $._newline,
-        $.element_body
+        $.multi_property_assignment
       )
+    ),
+
+    element_anonymous_multi_line_instantiation: $ => seq(
+      $.identifier,
+      optional(seq('[', $._expression, ']')),
+      $.element_type,
+      $.element_body,
     ),
 
     string_literal: $ => seq('"', /[^"]*/, '"'),
