@@ -113,12 +113,19 @@ module.exports = grammar({
         $._constant_definition,
         $.element_type_definition,
         $._element_instantiation,
-        $.single_property_assignment
+        $.single_property_assignment,
       )),
       $._dedent
     ),
 
-    single_property_assignment: $ => seq($.identifier, '=', $._expression, $._newline),
+    _property_assignment: $ => seq($.identifier, '=', $._expression),
+
+    single_property_assignment: $ => seq($._property_assignment, $._newline),
+
+    multi_property_assignment: $ => seq(
+      $._property_assignment,
+      repeat(seq(';', $._property_assignment))
+    ),
 
     _element_instantiation: $ => choice(
       $.element_definitive_instantiation,
