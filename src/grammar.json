@@ -455,7 +455,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "property_assignment"
+                "name": "single_property_assignment"
               }
             ]
           }
@@ -466,7 +466,7 @@
         }
       ]
     },
-    "property_assignment": {
+    "single_property_assignment": {
       "type": "SEQ",
       "members": [
         {

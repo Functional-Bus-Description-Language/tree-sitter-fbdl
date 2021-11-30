@@ -155,11 +155,11 @@
           "named": true
         },
         {
-          "type": "property_assignment",
+          "type": "single_constant_definition",
           "named": true
         },
         {
-          "type": "single_constant_definition",
+          "type": "single_property_assignment",
           "named": true
         }
       ]
@@ -403,29 +403,6 @@
     }
   },
   {
-    "type": "property_assignment",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "expression_list",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "qualified_identifier",
     "named": true,
     "fields": {},
@@ -477,6 +454,29 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "single_property_assignment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
           "named": true
         }
       ]
