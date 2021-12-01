@@ -738,8 +738,17 @@
               "name": "_newline"
             },
             {
-              "type": "SYMBOL",
-              "name": "multi_property_assignment"
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": ";"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "multi_property_assignment"
+                }
+              ]
             }
           ]
         }

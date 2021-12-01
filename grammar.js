@@ -162,7 +162,7 @@ module.exports = grammar({
       $.element_type,
       choice(
         $._newline,
-        $.multi_property_assignment
+        seq(';', $.multi_property_assignment)
       )
     ),
 
