@@ -81,7 +81,7 @@
           "named": true
         },
         {
-          "type": "element_type_definition",
+          "type": "element_type_definition_multi_line",
           "named": true
         },
         {
@@ -186,7 +186,7 @@
           "named": true
         },
         {
-          "type": "element_type_definition",
+          "type": "element_type_definition_multi_line",
           "named": true
         },
         {
@@ -245,7 +245,7 @@
     "fields": {}
   },
   {
-    "type": "element_type_definition",
+    "type": "element_type_definition_multi_line",
     "named": true,
     "fields": {},
     "children": {
