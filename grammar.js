@@ -29,7 +29,7 @@ module.exports = grammar({
       $._meta_statement,
       $._constant_definition,
       $._type_definition,
-      $._element_instantiation
+      $._instantiation
     )),
 
     comment: $ => token(seq('#', /.*/)),
@@ -116,7 +116,7 @@ module.exports = grammar({
       repeat1(choice(
         $._constant_definition,
         $._type_definition,
-        $._element_instantiation,
+        $._instantiation,
         $.single_property_assignment,
       )),
       $._dedent
@@ -132,10 +132,10 @@ module.exports = grammar({
       $._newline
     ),
 
-    _element_instantiation: $ => choice(
+    _instantiation: $ => choice(
       $.element_definitive_instantiation,
-      $.element_anonymous_single_line_instantiation,
-      $.element_anonymous_multi_line_instantiation,
+      $.single_line_anonymous_instantiation,
+      $.multi_line_anonymous_instantiation,
     ),
 
     _argument: $ => seq(
@@ -160,7 +160,7 @@ module.exports = grammar({
       )
     ),
 
-    element_anonymous_single_line_instantiation: $ => seq(
+    single_line_anonymous_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
       $.element_type,
@@ -170,7 +170,7 @@ module.exports = grammar({
       )
     ),
 
-    element_anonymous_multi_line_instantiation: $ => seq(
+    multi_line_anonymous_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
       $.element_type,

@@ -69,14 +69,6 @@
       "required": false,
       "types": [
         {
-          "type": "element_anonymous_multi_line_instantiation",
-          "named": true
-        },
-        {
-          "type": "element_anonymous_single_line_instantiation",
-          "named": true
-        },
-        {
           "type": "element_definitive_instantiation",
           "named": true
         },
@@ -86,6 +78,10 @@
         },
         {
           "type": "multi_import_statement",
+          "named": true
+        },
+        {
+          "type": "multi_line_anonymous_instantiation",
           "named": true
         },
         {
@@ -99,67 +95,9 @@
         {
           "type": "single_import_statement",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "element_anonymous_multi_line_instantiation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "element_body",
-          "named": true
         },
         {
-          "type": "element_type",
-          "named": true
-        },
-        {
-          "type": "expression_list",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "element_anonymous_single_line_instantiation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "element_type",
-          "named": true
-        },
-        {
-          "type": "expression_list",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "multi_property_assignment",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
+          "type": "single_line_anonymous_instantiation",
           "named": true
         }
       ]
@@ -174,14 +112,6 @@
       "required": true,
       "types": [
         {
-          "type": "element_anonymous_multi_line_instantiation",
-          "named": true
-        },
-        {
-          "type": "element_anonymous_single_line_instantiation",
-          "named": true
-        },
-        {
           "type": "element_definitive_instantiation",
           "named": true
         },
@@ -190,11 +120,19 @@
           "named": true
         },
         {
+          "type": "multi_line_anonymous_instantiation",
+          "named": true
+        },
+        {
           "type": "multi_line_type_definition",
           "named": true
         },
         {
           "type": "single_constant_definition",
+          "named": true
+        },
+        {
+          "type": "single_line_anonymous_instantiation",
           "named": true
         },
         {
@@ -296,6 +234,37 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "multi_line_anonymous_instantiation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "element_body",
+          "named": true
+        },
+        {
+          "type": "element_type",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
           "named": true
         }
       ]
@@ -516,6 +485,37 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "single_line_anonymous_instantiation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "element_type",
+          "named": true
+        },
+        {
+          "type": "expression_list",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "multi_property_assignment",
+          "named": true
+        },
+        {
+          "type": "primary_expression",
           "named": true
         }
       ]
