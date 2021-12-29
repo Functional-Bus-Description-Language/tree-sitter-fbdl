@@ -16,7 +16,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "_element_type_definition"
+            "name": "_type_definition"
           },
           {
             "type": "SYMBOL",
@@ -362,16 +362,16 @@
         }
       ]
     },
-    "_element_type_definition": {
+    "_type_definition": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "element_type_definition_multi_line"
+          "name": "multi_line_type_definition"
         }
       ]
     },
-    "element_type_definition_multi_line": {
+    "multi_line_type_definition": {
       "type": "SEQ",
       "members": [
         {
@@ -456,7 +456,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_element_type_definition"
+                "name": "_type_definition"
               },
               {
                 "type": "SYMBOL",

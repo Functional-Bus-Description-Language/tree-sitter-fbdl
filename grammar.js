@@ -28,7 +28,7 @@ module.exports = grammar({
     description: $ => repeat(choice(
       $._meta_statement,
       $._constant_definition,
-      $._element_type_definition,
+      $._type_definition,
       $._element_instantiation
     )),
 
@@ -95,11 +95,11 @@ module.exports = grammar({
       'status'
     ),
 
-    _element_type_definition: $ => choice(
-      $.element_type_definition_multi_line,
+    _type_definition: $ => choice(
+      $.multi_line_type_definition,
     ),
 
-    element_type_definition_multi_line: $ => seq(
+    multi_line_type_definition: $ => seq(
       'type',
       $.identifier, optional($.parameter_list),
       choice($._declared_identifier, $.qualified_identifier),
@@ -115,7 +115,7 @@ module.exports = grammar({
       $._indent,
       repeat1(choice(
         $._constant_definition,
-        $._element_type_definition,
+        $._type_definition,
         $._element_instantiation,
         $.single_property_assignment,
       )),

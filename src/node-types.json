@@ -81,15 +81,15 @@
           "named": true
         },
         {
-          "type": "element_type_definition_multi_line",
-          "named": true
-        },
-        {
           "type": "multi_constant_definition",
           "named": true
         },
         {
           "type": "multi_import_statement",
+          "named": true
+        },
+        {
+          "type": "multi_line_type_definition",
           "named": true
         },
         {
@@ -186,11 +186,11 @@
           "named": true
         },
         {
-          "type": "element_type_definition_multi_line",
+          "type": "multi_constant_definition",
           "named": true
         },
         {
-          "type": "multi_constant_definition",
+          "type": "multi_line_type_definition",
           "named": true
         },
         {
@@ -245,37 +245,6 @@
     "fields": {}
   },
   {
-    "type": "element_type_definition_multi_line",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "argument_list",
-          "named": true
-        },
-        {
-          "type": "element_body",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "parameter_list",
-          "named": true
-        },
-        {
-          "type": "qualified_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "expression_list",
     "named": true,
     "fields": {},
@@ -327,6 +296,37 @@
         },
         {
           "type": "string_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "multi_line_type_definition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "element_body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "parameter_list",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
           "named": true
         }
       ]
