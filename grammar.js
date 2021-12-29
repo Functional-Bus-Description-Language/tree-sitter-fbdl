@@ -96,7 +96,19 @@ module.exports = grammar({
     ),
 
     _type_definition: $ => choice(
-      $.multi_line_type_definition,
+      $.single_line_type_definition,
+      $.multi_line_type_definition
+    ),
+
+    single_line_type_definition: $ => seq(
+      'type',
+      $.identifier, optional($.parameter_list),
+      choice($._declared_identifier, $.qualified_identifier),
+      optional($.argument_list),
+      choice(
+        $._newline,
+        seq(';', $.multi_property_assignment)
+      )
     ),
 
     multi_line_type_definition: $ => seq(
@@ -104,10 +116,7 @@ module.exports = grammar({
       $.identifier, optional($.parameter_list),
       choice($._declared_identifier, $.qualified_identifier),
       optional($.argument_list),
-      choice(
-        $._newline,
-        $.element_body
-      )
+      $.element_body
     ),
 
     element_body: $ => seq(
