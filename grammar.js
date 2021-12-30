@@ -85,16 +85,6 @@ module.exports = grammar({
       '(', optional($._parameters), ')'
     ),
 
-    element_type: $ => choice(
-      'bus',
-      'block',
-      'config',
-      'func',
-      'mask',
-      'param',
-      'status'
-    ),
-
     _type_definition: $ => choice(
       $.single_line_type_definition,
       $.multi_line_type_definition
@@ -142,9 +132,8 @@ module.exports = grammar({
     ),
 
     _instantiation: $ => choice(
-      $.element_definitive_instantiation,
-      $.single_line_anonymous_instantiation,
-      $.multi_line_anonymous_instantiation,
+      $.single_line_instantiation,
+      $.multi_line_instantiation,
     ),
 
     _argument: $ => seq(
@@ -158,31 +147,22 @@ module.exports = grammar({
       '(', optional($._arguments), ')'
     ),
 
-    element_definitive_instantiation: $ => seq(
+    single_line_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
       choice($._declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       choice(
         $._newline,
-        $.element_body
-      )
-    ),
-
-    single_line_anonymous_instantiation: $ => seq(
-      $.identifier,
-      optional(seq('[', $._expression, ']')),
-      $.element_type,
-      choice(
-        $._newline,
         seq(';', $.multi_property_assignment)
       )
     ),
 
-    multi_line_anonymous_instantiation: $ => seq(
+    multi_line_instantiation: $ => seq(
       $.identifier,
       optional(seq('[', $._expression, ']')),
-      $.element_type,
+      choice($._declared_identifier, $.qualified_identifier),
+      optional($.argument_list),
       $.element_body,
     ),
 

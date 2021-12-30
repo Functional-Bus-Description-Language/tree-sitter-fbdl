@@ -69,10 +69,6 @@
       "required": false,
       "types": [
         {
-          "type": "element_definitive_instantiation",
-          "named": true
-        },
-        {
           "type": "multi_constant_definition",
           "named": true
         },
@@ -81,7 +77,7 @@
           "named": true
         },
         {
-          "type": "multi_line_anonymous_instantiation",
+          "type": "multi_line_instantiation",
           "named": true
         },
         {
@@ -97,7 +93,7 @@
           "named": true
         },
         {
-          "type": "single_line_anonymous_instantiation",
+          "type": "single_line_instantiation",
           "named": true
         },
         {
@@ -116,15 +112,11 @@
       "required": true,
       "types": [
         {
-          "type": "element_definitive_instantiation",
-          "named": true
-        },
-        {
           "type": "multi_constant_definition",
           "named": true
         },
         {
-          "type": "multi_line_anonymous_instantiation",
+          "type": "multi_line_instantiation",
           "named": true
         },
         {
@@ -136,7 +128,7 @@
           "named": true
         },
         {
-          "type": "single_line_anonymous_instantiation",
+          "type": "single_line_instantiation",
           "named": true
         },
         {
@@ -149,46 +141,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "element_definitive_instantiation",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "argument_list",
-          "named": true
-        },
-        {
-          "type": "element_body",
-          "named": true
-        },
-        {
-          "type": "expression_list",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
-          "named": true
-        },
-        {
-          "type": "qualified_identifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "element_type",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "expression_list",
@@ -248,7 +200,7 @@
     }
   },
   {
-    "type": "multi_line_anonymous_instantiation",
+    "type": "multi_line_instantiation",
     "named": true,
     "fields": {},
     "children": {
@@ -256,11 +208,11 @@
       "required": true,
       "types": [
         {
-          "type": "element_body",
+          "type": "argument_list",
           "named": true
         },
         {
-          "type": "element_type",
+          "type": "element_body",
           "named": true
         },
         {
@@ -273,6 +225,10 @@
         },
         {
           "type": "primary_expression",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
           "named": true
         }
       ]
@@ -499,7 +455,7 @@
     }
   },
   {
-    "type": "single_line_anonymous_instantiation",
+    "type": "single_line_instantiation",
     "named": true,
     "fields": {},
     "children": {
@@ -507,7 +463,7 @@
       "required": true,
       "types": [
         {
-          "type": "element_type",
+          "type": "argument_list",
           "named": true
         },
         {
@@ -524,6 +480,10 @@
         },
         {
           "type": "primary_expression",
+          "named": true
+        },
+        {
+          "type": "qualified_identifier",
           "named": true
         }
       ]
@@ -711,20 +671,8 @@
     "named": true
   },
   {
-    "type": "block",
-    "named": false
-  },
-  {
-    "type": "bus",
-    "named": false
-  },
-  {
     "type": "comment",
     "named": true
-  },
-  {
-    "type": "config",
-    "named": false
   },
   {
     "type": "const",
@@ -736,10 +684,6 @@
   },
   {
     "type": "false",
-    "named": false
-  },
-  {
-    "type": "func",
     "named": false
   },
   {
@@ -755,23 +699,11 @@
     "named": false
   },
   {
-    "type": "mask",
-    "named": false
-  },
-  {
     "type": "octal_literal",
     "named": true
   },
   {
     "type": "or",
-    "named": false
-  },
-  {
-    "type": "param",
-    "named": false
-  },
-  {
-    "type": "status",
     "named": false
   },
   {
