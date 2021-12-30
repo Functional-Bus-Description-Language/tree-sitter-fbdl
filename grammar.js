@@ -245,7 +245,7 @@ module.exports = grammar({
       'true',
       'false',
       $.call,
-      $.identifier,
+      $.declared_identifier,
       $.qualified_identifier,
       $._integer_literal,
       $.unary_operation,

@@ -392,11 +392,11 @@
           "named": true
         },
         {
-          "type": "hex_literal",
+          "type": "declared_identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "hex_literal",
           "named": true
         },
         {
