@@ -36,7 +36,7 @@ module.exports = grammar({
 
     identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
-    declared_identifier: $ => $.identifier,
+    declared_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
     qualified_identifier: $ => seq($.identifier, '.', $.identifier),
 
