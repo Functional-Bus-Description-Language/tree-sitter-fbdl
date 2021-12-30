@@ -43,11 +43,11 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)+"
+      "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*"
     },
     "declared_identifier": {
       "type": "PATTERN",
-      "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)+"
+      "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*"
     },
     "qualified_identifier": {
       "type": "SEQ",
