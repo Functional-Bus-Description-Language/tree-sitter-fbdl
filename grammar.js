@@ -36,7 +36,7 @@ module.exports = grammar({
 
     identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
-    _declared_identifier: $ => $.identifier,
+    declared_identifier: $ => $.identifier,
 
     qualified_identifier: $ => seq($.identifier, '.', $.identifier),
 
@@ -93,7 +93,7 @@ module.exports = grammar({
     single_line_type_definition: $ => seq(
       'type',
       $.identifier, optional($.parameter_list),
-      choice($._declared_identifier, $.qualified_identifier),
+      choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       choice(
         $._newline,
@@ -104,7 +104,7 @@ module.exports = grammar({
     multi_line_type_definition: $ => seq(
       'type',
       $.identifier, optional($.parameter_list),
-      choice($._declared_identifier, $.qualified_identifier),
+      choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       $.element_body
     ),
@@ -137,7 +137,7 @@ module.exports = grammar({
     ),
 
     _argument: $ => seq(
-      optional(seq($._declared_identifier, '=')),
+      optional(seq($.declared_identifier, '=')),
       $._expression,
     ),
 
@@ -147,10 +147,12 @@ module.exports = grammar({
       '(', optional($._arguments), ')'
     ),
 
+    array_marker: $ => seq('[', $._expression, ']'),
+
     single_line_instantiation: $ => seq(
       $.identifier,
-      optional(seq('[', $._expression, ']')),
-      choice($._declared_identifier, $.qualified_identifier),
+      optional($.array_marker),
+      choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       choice(
         $._newline,
@@ -160,8 +162,8 @@ module.exports = grammar({
 
     multi_line_instantiation: $ => seq(
       $.identifier,
-      optional(seq('[', $._expression, ']')),
-      choice($._declared_identifier, $.qualified_identifier),
+      optional($.array_marker),
+      choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
       $.element_body,
     ),
@@ -236,7 +238,7 @@ module.exports = grammar({
     )),
 
     subscript: $ => seq(
-      choice($._declared_identifier, $.qualified_identifier), '[', $._expression, ']'
+      choice($.declared_identifier, $.qualified_identifier), '[', $._expression, ']'
     ),
 
     primary_expression: $ => choice(

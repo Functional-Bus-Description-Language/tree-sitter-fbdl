@@ -8,11 +8,30 @@
       "required": false,
       "types": [
         {
+          "type": "declared_identifier",
+          "named": true
+        },
+        {
           "type": "expression_list",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "array_marker",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression_list",
           "named": true
         },
         {
@@ -55,6 +74,21 @@
         },
         {
           "type": "primary_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declared_identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -212,19 +246,19 @@
           "named": true
         },
         {
+          "type": "array_marker",
+          "named": true
+        },
+        {
+          "type": "declared_identifier",
+          "named": true
+        },
+        {
           "type": "element_body",
           "named": true
         },
         {
-          "type": "expression_list",
-          "named": true
-        },
-        {
           "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
           "named": true
         },
         {
@@ -244,6 +278,10 @@
       "types": [
         {
           "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "declared_identifier",
           "named": true
         },
         {
@@ -467,7 +505,11 @@
           "named": true
         },
         {
-          "type": "expression_list",
+          "type": "array_marker",
+          "named": true
+        },
+        {
+          "type": "declared_identifier",
           "named": true
         },
         {
@@ -476,10 +518,6 @@
         },
         {
           "type": "multi_property_assignment",
-          "named": true
-        },
-        {
-          "type": "primary_expression",
           "named": true
         },
         {
@@ -499,6 +537,10 @@
       "types": [
         {
           "type": "argument_list",
+          "named": true
+        },
+        {
+          "type": "declared_identifier",
           "named": true
         },
         {
@@ -557,11 +599,11 @@
       "required": true,
       "types": [
         {
-          "type": "expression_list",
+          "type": "declared_identifier",
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "expression_list",
           "named": true
         },
         {
