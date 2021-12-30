@@ -38,7 +38,7 @@ module.exports = grammar({
 
     declared_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
 
-    qualified_identifier: $ => seq($.identifier, '.', $.identifier),
+    qualified_identifier: $ => seq($.declared_identifier, '.', $.declared_identifier),
 
     _meta_statement: $ => choice(
       $._import_statement,
@@ -228,7 +228,7 @@ module.exports = grammar({
     },
 
     call: $ => prec(PREC.call, seq(
-        $.identifier, '(', $._expression, repeat(seq(',', $._expression)), ')'
+        $.declared_identifier, '(', $._expression, repeat(seq(',', $._expression)), ')'
     )),
 
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(

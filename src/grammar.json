@@ -54,7 +54,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "declared_identifier"
         },
         {
           "type": "STRING",
@@ -62,7 +62,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "declared_identifier"
         }
       ]
     },
@@ -1082,7 +1082,7 @@
         "members": [
           {
             "type": "SYMBOL",
-            "name": "identifier"
+            "name": "declared_identifier"
           },
           {
             "type": "STRING",
