@@ -34,9 +34,9 @@ module.exports = grammar({
 
     comment: $ => token(seq('#', /.*/)),
 
-    identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
+    identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)+/,
 
-    declared_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
+    declared_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)+/,
 
     qualified_identifier: $ => seq($.declared_identifier, '.', $.declared_identifier),
 
