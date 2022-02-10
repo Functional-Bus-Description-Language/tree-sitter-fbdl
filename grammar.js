@@ -1,3 +1,9 @@
+/*
+SPDX-License-Identifier: GPL-3.0
+
+Copyright (c) 2021 Michał Kruszewski
+*/
+
 const PREC = {
   parenthesized_expression: 1,
   or:    2,
