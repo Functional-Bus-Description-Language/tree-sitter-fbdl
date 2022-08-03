@@ -234,7 +234,7 @@ module.exports = grammar({
     },
 
     call: $ => prec(PREC.call, seq(
-        $.declared_identifier, '(', $._expression, repeat(seq(',', $._expression)), ')'
+        $.declared_identifier, '(', optional($._expressions), ')'
     )),
 
     parenthesized_expression: $ => prec(PREC.parenthesized_expression, seq(
