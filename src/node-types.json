@@ -186,6 +186,21 @@
     }
   },
   {
+    "type": "float_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "decimal_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "identifier",
     "named": true,
     "fields": {}
@@ -393,6 +408,10 @@
         },
         {
           "type": "declared_identifier",
+          "named": true
+        },
+        {
+          "type": "float_literal",
           "named": true
         },
         {

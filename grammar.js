@@ -194,7 +194,13 @@ module.exports = grammar({
 
     hex_literal: $ => /0(x|X)[0-9|a-f|A-F]([0-9|a-f|A-F]|_)*/,
 
-    bit_literal: $=> /(b|B|o|O|x|X)\"([0-9]|[a-f]|[A-F]|h|H|l|L|u|U|x|X|w|W|z|Z|-)*\"/,
+    bit_literal: $ => /(b|B|o|O|x|X)\"([0-9]|[a-f]|[A-F]|h|H|l|L|u|U|x|X|w|W|z|Z|-)*\"/,
+
+    float_literal: $ => choice(
+      seq($.decimal_literal, '.'),
+      seq('.', optional($.decimal_literal)),
+      seq($.decimal_literal, '.', $.decimal_literal),
+    ),
 
     logical_operator: $ => choice('and', 'or'),
 
@@ -254,6 +260,7 @@ module.exports = grammar({
       $.declared_identifier,
       $.qualified_identifier,
       $._integer_literal,
+      $.float_literal,
       $.unary_operation,
       $.binary_operation,
       $.parenthesized_expression,
