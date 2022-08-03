@@ -196,6 +196,10 @@
         {
           "type": "decimal_literal",
           "named": true
+        },
+        {
+          "type": "zero_literal",
+          "named": true
         }
       ]
     }

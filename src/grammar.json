@@ -846,6 +846,19 @@
       "type": "PATTERN",
       "value": "[1-9]([0-9]|_)*"
     },
+    "_zero_or_decimal_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "zero_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "decimal_literal"
+        }
+      ]
+    },
     "binary_literal": {
       "type": "PATTERN",
       "value": "0(b|B)[01]([01]|_)*"
@@ -870,7 +883,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "decimal_literal"
+              "name": "_zero_or_decimal_literal"
             },
             {
               "type": "STRING",
@@ -890,7 +903,7 @@
               "members": [
                 {
                   "type": "SYMBOL",
-                  "name": "decimal_literal"
+                  "name": "_zero_or_decimal_literal"
                 },
                 {
                   "type": "BLANK"
@@ -904,7 +917,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "decimal_literal"
+              "name": "_zero_or_decimal_literal"
             },
             {
               "type": "STRING",
@@ -912,7 +925,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "decimal_literal"
+              "name": "_zero_or_decimal_literal"
             }
           ]
         }

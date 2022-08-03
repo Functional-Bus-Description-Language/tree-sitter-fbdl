@@ -188,6 +188,11 @@ module.exports = grammar({
 
     decimal_literal: $ => /[1-9]([0-9]|_)*/,
 
+    _zero_or_decimal_literal: $ => choice(
+      $.zero_literal,
+      $.decimal_literal,
+    ),
+
     binary_literal: $ => /0(b|B)[01]([01]|_)*/,
 
     octal_literal: $ => /0(o|O)[0-7]([0-7]|_)*/,
@@ -197,9 +202,9 @@ module.exports = grammar({
     bit_literal: $ => /(b|B|o|O|x|X)\"([0-9]|[a-f]|[A-F]|h|H|l|L|u|U|x|X|w|W|z|Z|-)*\"/,
 
     float_literal: $ => choice(
-      seq($.decimal_literal, '.'),
-      seq('.', optional($.decimal_literal)),
-      seq($.decimal_literal, '.', $.decimal_literal),
+      seq($._zero_or_decimal_literal, '.'),
+      seq('.', optional($._zero_or_decimal_literal)),
+      seq($._zero_or_decimal_literal, '.', $._zero_or_decimal_literal),
     ),
 
     logical_operator: $ => choice('and', 'or'),
