@@ -931,6 +931,40 @@
         }
       ]
     },
+    "time_unit": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "ns"
+        },
+        {
+          "type": "STRING",
+          "value": "us"
+        },
+        {
+          "type": "STRING",
+          "value": "ms"
+        },
+        {
+          "type": "STRING",
+          "value": "s"
+        }
+      ]
+    },
+    "time_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_integer_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "time_unit"
+        }
+      ]
+    },
     "logical_operator": {
       "type": "CHOICE",
       "members": [
@@ -1281,6 +1315,10 @@
         {
           "type": "SYMBOL",
           "name": "bit_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "time_literal"
         }
       ]
     },

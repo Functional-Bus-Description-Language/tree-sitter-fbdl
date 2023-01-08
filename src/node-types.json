@@ -443,6 +443,10 @@
           "named": true
         },
         {
+          "type": "time_literal",
+          "named": true
+        },
+        {
           "type": "unary_operation",
           "named": true
         },
@@ -636,6 +640,46 @@
     }
   },
   {
+    "type": "time_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_literal",
+          "named": true
+        },
+        {
+          "type": "decimal_literal",
+          "named": true
+        },
+        {
+          "type": "hex_literal",
+          "named": true
+        },
+        {
+          "type": "octal_literal",
+          "named": true
+        },
+        {
+          "type": "time_unit",
+          "named": true
+        },
+        {
+          "type": "zero_literal",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "time_unit",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "unary_operation",
     "named": true,
     "fields": {},
@@ -755,6 +799,14 @@
     "named": false
   },
   {
+    "type": "ms",
+    "named": false
+  },
+  {
+    "type": "ns",
+    "named": false
+  },
+  {
     "type": "octal_literal",
     "named": true
   },
@@ -763,11 +815,19 @@
     "named": false
   },
   {
+    "type": "s",
+    "named": false
+  },
+  {
     "type": "true",
     "named": false
   },
   {
     "type": "type",
+    "named": false
+  },
+  {
+    "type": "us",
     "named": false
   },
   {

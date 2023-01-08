@@ -207,6 +207,10 @@ module.exports = grammar({
       seq($._zero_or_decimal_literal, '.', $._zero_or_decimal_literal),
     ),
 
+    time_unit: $ => choice('ns', 'us', 'ms', 's'),
+
+    time_literal: $ => seq ($._integer_literal, $.time_unit),
+
     logical_operator: $ => choice('and', 'or'),
 
 /*
@@ -272,6 +276,7 @@ module.exports = grammar({
       $.string_literal,
       $.subscript,
       $.bit_literal,
+      $.time_literal,
     ),
 
     _expressions: $ => seq($._expression, repeat(seq(',', $._expression))),
