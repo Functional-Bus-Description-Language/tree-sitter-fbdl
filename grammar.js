@@ -157,7 +157,7 @@ module.exports = grammar({
       optional($.array_marker),
       choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
-      optional($.multi_property_assignment),
+      optional(seq(';', $.multi_property_assignment)),
       $._newline,
     ),
 
