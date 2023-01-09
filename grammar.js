@@ -101,10 +101,8 @@ module.exports = grammar({
       $.identifier, optional($.parameter_list),
       choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
-      choice(
-        $._newline,
-        seq(';', $.multi_property_assignment)
-      )
+      optional(seq(';', $.multi_property_assignment)),
+      $._newline,
     ),
 
     multi_line_type_definition: $ => seq(
@@ -134,7 +132,6 @@ module.exports = grammar({
     multi_property_assignment: $ => seq(
       $._property_assignment,
       repeat(seq(';', $._property_assignment)),
-      $._newline
     ),
 
     _instantiation: $ => choice(
@@ -160,10 +157,8 @@ module.exports = grammar({
       optional($.array_marker),
       choice($.declared_identifier, $.qualified_identifier),
       optional($.argument_list),
-      choice(
-        $._newline,
-        seq(';', $.multi_property_assignment)
-      )
+      optional($.multi_property_assignment),
+      $._newline,
     ),
 
     multi_line_instantiation: $ => seq(
