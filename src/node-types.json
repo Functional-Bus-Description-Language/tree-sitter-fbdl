@@ -218,6 +218,10 @@
       "required": true,
       "types": [
         {
+          "type": "expression_list",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },

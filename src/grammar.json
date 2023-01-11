@@ -234,7 +234,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "primary_expression"
+                "name": "_expression"
               },
               {
                 "type": "SYMBOL",

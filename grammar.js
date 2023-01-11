@@ -76,7 +76,7 @@ module.exports = grammar({
 
     multi_constant_definition: $ => seq(
       'const', $._newline, $._indent,
-      repeat1(seq($.identifier, '=', $.primary_expression, $._newline)),
+      repeat1(seq($.identifier, '=', $._expression, $._newline)),
       $._dedent
     ),
 
