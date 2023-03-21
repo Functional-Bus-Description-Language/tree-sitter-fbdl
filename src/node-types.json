@@ -451,11 +451,11 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "primary_expression",
           "named": true
         },
         {
-          "type": "primary_expression",
+          "type": "property_identifier",
           "named": true
         }
       ]
@@ -794,6 +794,10 @@
   {
     "type": "or",
     "named": false
+  },
+  {
+    "type": "property_identifier",
+    "named": true
   },
   {
     "type": "s",
