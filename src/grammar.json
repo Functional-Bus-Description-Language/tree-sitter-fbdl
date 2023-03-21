@@ -50,8 +50,49 @@
       "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*"
     },
     "property_identifier": {
-      "type": "PATTERN",
-      "value": "([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_|-)*"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "atomic"
+        },
+        {
+          "type": "STRING",
+          "value": "delay"
+        },
+        {
+          "type": "STRING",
+          "value": "groups"
+        },
+        {
+          "type": "STRING",
+          "value": "masters"
+        },
+        {
+          "type": "STRING",
+          "value": "once"
+        },
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "width"
+        },
+        {
+          "type": "STRING",
+          "value": "init-value"
+        },
+        {
+          "type": "STRING",
+          "value": "read-value"
+        },
+        {
+          "type": "STRING",
+          "value": "reset-value"
+        }
+      ]
     },
     "qualified_identifier": {
       "type": "SEQ",

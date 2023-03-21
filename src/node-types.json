@@ -462,6 +462,11 @@
     }
   },
   {
+    "type": "property_identifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "qualified_identifier",
     "named": true,
     "fields": {},
@@ -748,6 +753,10 @@
     "named": false
   },
   {
+    "type": "atomic",
+    "named": false
+  },
+  {
     "type": "binary_literal",
     "named": true
   },
@@ -768,7 +777,15 @@
     "named": true
   },
   {
+    "type": "delay",
+    "named": false
+  },
+  {
     "type": "false",
+    "named": false
+  },
+  {
+    "type": "groups",
     "named": false
   },
   {
@@ -777,6 +794,14 @@
   },
   {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "init-value",
+    "named": false
+  },
+  {
+    "type": "masters",
     "named": false
   },
   {
@@ -792,12 +817,24 @@
     "named": true
   },
   {
+    "type": "once",
+    "named": false
+  },
+  {
     "type": "or",
     "named": false
   },
   {
-    "type": "property_identifier",
-    "named": true
+    "type": "range",
+    "named": false
+  },
+  {
+    "type": "read-value",
+    "named": false
+  },
+  {
+    "type": "reset-value",
+    "named": false
   },
   {
     "type": "s",
@@ -813,6 +850,10 @@
   },
   {
     "type": "us",
+    "named": false
+  },
+  {
+    "type": "width",
     "named": false
   },
   {

@@ -42,7 +42,18 @@ module.exports = grammar({
 
     identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
     declared_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_)*/,
-    property_identifier: $ => /([A-Z]|[a-z])([A-Z]|[a-z]|[0-9]|_|-)*/,
+    property_identifier: $ => choice(
+      'atomic',
+      'delay',
+      'groups',
+      'masters',
+      'once',
+      'range',
+      'width',
+      'init-value',
+      'read-value',
+      'reset-value',
+    ),
 
     qualified_identifier: $ => seq($.declared_identifier, '.', $.declared_identifier),
 
