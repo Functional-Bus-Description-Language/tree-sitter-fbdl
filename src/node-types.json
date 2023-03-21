@@ -817,10 +817,6 @@
     "named": true
   },
   {
-    "type": "once",
-    "named": false
-  },
-  {
     "type": "or",
     "named": false
   },

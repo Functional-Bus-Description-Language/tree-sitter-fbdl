@@ -70,10 +70,6 @@
         },
         {
           "type": "STRING",
-          "value": "once"
-        },
-        {
-          "type": "STRING",
           "value": "range"
         },
         {

@@ -47,7 +47,6 @@ module.exports = grammar({
       'delay',
       'groups',
       'masters',
-      'once',
       'range',
       'width',
       'init-value',
