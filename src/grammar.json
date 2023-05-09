@@ -54,7 +54,23 @@
       "members": [
         {
           "type": "STRING",
+          "value": "access"
+        },
+        {
+          "type": "STRING",
+          "value": "add-enable"
+        },
+        {
+          "type": "STRING",
           "value": "atomic"
+        },
+        {
+          "type": "STRING",
+          "value": "byte-write-enable"
+        },
+        {
+          "type": "STRING",
+          "value": "clear"
         },
         {
           "type": "STRING",
@@ -62,19 +78,15 @@
         },
         {
           "type": "STRING",
+          "value": "enable-init-value"
+        },
+        {
+          "type": "STRING",
+          "value": "enable-reset-value"
+        },
+        {
+          "type": "STRING",
           "value": "groups"
-        },
-        {
-          "type": "STRING",
-          "value": "masters"
-        },
-        {
-          "type": "STRING",
-          "value": "range"
-        },
-        {
-          "type": "STRING",
-          "value": "width"
         },
         {
           "type": "STRING",
@@ -82,11 +94,43 @@
         },
         {
           "type": "STRING",
+          "value": "in-trigger"
+        },
+        {
+          "type": "STRING",
+          "value": "masters"
+        },
+        {
+          "type": "STRING",
+          "value": "out-trigger"
+        },
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "read-latency"
+        },
+        {
+          "type": "STRING",
           "value": "read-value"
         },
         {
           "type": "STRING",
+          "value": "reset"
+        },
+        {
+          "type": "STRING",
           "value": "reset-value"
+        },
+        {
+          "type": "STRING",
+          "value": "size"
+        },
+        {
+          "type": "STRING",
+          "value": "width"
         }
       ]
     },

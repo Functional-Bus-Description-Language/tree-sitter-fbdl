@@ -749,6 +749,14 @@
     "named": false
   },
   {
+    "type": "access",
+    "named": false
+  },
+  {
+    "type": "add-enable",
+    "named": false
+  },
+  {
     "type": "and",
     "named": false
   },
@@ -763,6 +771,14 @@
   {
     "type": "bit_literal",
     "named": true
+  },
+  {
+    "type": "byte-write-enable",
+    "named": false
+  },
+  {
+    "type": "clear",
+    "named": false
   },
   {
     "type": "comment",
@@ -781,6 +797,14 @@
     "named": false
   },
   {
+    "type": "enable-init-value",
+    "named": false
+  },
+  {
+    "type": "enable-reset-value",
+    "named": false
+  },
+  {
     "type": "false",
     "named": false
   },
@@ -794,6 +818,10 @@
   },
   {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "in-trigger",
     "named": false
   },
   {
@@ -821,11 +849,23 @@
     "named": false
   },
   {
+    "type": "out-trigger",
+    "named": false
+  },
+  {
     "type": "range",
     "named": false
   },
   {
+    "type": "read-latency",
+    "named": false
+  },
+  {
     "type": "read-value",
+    "named": false
+  },
+  {
+    "type": "reset",
     "named": false
   },
   {
@@ -834,6 +874,10 @@
   },
   {
     "type": "s",
+    "named": false
+  },
+  {
+    "type": "size",
     "named": false
   },
   {
